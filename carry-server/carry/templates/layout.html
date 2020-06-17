@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8"/>
+    <head>
+        {% if title %}
+            <title>Carry -
+                {{ title }}</title>
+        {% else %}
+            <title>Carry</title>
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href='https://fonts.googleapis.com/css?family=Archivo' rel='stylesheet'>
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/skeleton.css') }}"/>
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/available.png') }}"/>
+    </head>
+    <body>
+        <nav class="nav-show">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a style="padding: 10px;" href="{{ url_for('index') }}"><img class="logo" src="{{ url_for('static', filename='image/logo.png') }}"/></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('home') }}">Find Car</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                        <li class="">
+                            <a href="{{ url_for('profile') }}">Profile</a>
+                        </li>
+                        <li class="">
+                            <a href="{{ url_for('my_bookings') }}">My Bookings</a>
+                        </li>
+                        {% if current_user.auth != 'user' %}
+                        <li class="">
+                            <a href="/admin">Admin</a>
+                        </li>
+                        {% endif %}
+                        <li class="right">
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="right">
+                            <a href="{{ url_for('register') }}">Register</a>
+                        </li>
+                        <li class="right">
+                            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                    {% endif %}
+                    <li class="icon">
+                        <a href="javascript:void(0);" onclick="toggleMobileNav();">&#9776;</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="footer_container">
+            <div class="footer-block">
+                <footer id="footer" class="twelve columns">
+                    &copy; Kyong. All Rights Reserved.
+                </footer>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

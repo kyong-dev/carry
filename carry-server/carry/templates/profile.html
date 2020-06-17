@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="form_container">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                <div class="six columns">
+                    <div class="profile">
+                        <div class="profile_img_box">
+                            <img class="profile_img" src="{{ profile_url }}"/>
+                        </div>
+                        {{ form.profile_url.label() }}
+                        {{ form.profile_url(class="u-full-width") }}
+                        {% if form.profile_url.errors %}
+                            <div class="u-pull-left alert-msg">
+                                {% for error in form.profile_url.errors %}
+                                    <span>
+                                        {{ error }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="six columns">
+                    <div>
+                        {{ form.username.label(class="") }}
+                        {{ form.username(class="u-full-width", readonly=True, style="background-color: #eee;") }}
+                    </div>
+                    <div>
+                        {{ form.email.label(class="") }}
+                        {{ form.email(class="u-full-width", readonly=True, style="background-color: #eee;") }}
+                    </div>
+                    <div>
+                        {{ form.firstname.label(class="") }}
+                        {{ form.firstname(class="u-full-width") }}
+                    </div>
+                    {% if form.firstname.errors %}
+                        <div class="u-pull-left alert-msg">
+                            {% for error in form.firstname.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {{ form.lastname.label(class="") }}
+                    {{ form.lastname(class="u-full-width") }}
+                    {% if form.lastname.errors %}
+                        <div class="u-pull-left alert-msg">
+                            {% for error in form.lastname.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="six columns">
+                    {{ form.location.label(class="") }}
+                    {{ form.location(class="u-full-width") }}
+                    {% if form.location.errors %}
+                        <div class="u-pull-left alert-msg">
+                            {% for error in form.location.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {{ form.submit(class="button u-full-width") }}
+        </form>
+    </div>
+{% endblock content %}

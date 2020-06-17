@@ -1,0 +1,5 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+    <h1>QR Code</h1>
+    <img src="{{ url_for('static', filename='image/qrcode/'+current_user.id|string+'.png') }}" />
+{% endblock body %}

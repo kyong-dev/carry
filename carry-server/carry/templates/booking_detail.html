@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="booking_detail_container">
+        <fieldset>
+            <legend class="booking_form_title">Booking Details</legend>
+        </fieldset>
+
+        <div class="details_container">
+            <h3>
+                Booking Reference #
+                {{ booking.reference }}</h4>
+            <h5>
+                Booking has been successfully made on
+                {{ booking.booking_datetime.strftime('%A, %d-%m-%Y %H:%M') }}</h6>
+
+            <div class="booking_detail_car">
+                <img style="width: 300px;" alt="car image" src="{{ url_for( 'static', filename='image/car/'+car.img_url) }}"/>
+                <div class="row">
+                    <div class="one column">ID</div>
+                    <div class="two columns">Make</div>
+                    <div class="two columns">Body Type</div>
+                    <div class="one column">Colour</div>
+                    <div class="one column">Seats</div>
+                    <div class="one column">hourly</div>
+                    <div class="four columns">Location</div>
+                </div>
+                <div class="row">
+                    <div class="one column">{{ car.id }}</div>
+                    <div class="two columns">{{ car.make }}</div>
+                    <div class="two columns">{{ car.body_type }}</div>
+                    <div class="one column">{{ car.colour }}</div>
+                    <div class="one column">{{ car.seats }}</div>
+                    <div class="one column">{{ "$%.2f"|format(car.cost) }}</div>
+                    <div class="four columns">{{ car.address }},
+                        {{ car.suburb }}
+                        {{ car.state }}
+                        {{ car.postcode }}</div>
+                </div>
+            </div>
+
+
+            <div class="booking_driver_driver">
+                <div>
+                    Driver:
+                    {{ current_user.firstname }}
+                    {{ current_user.lastname }}
+                </div>
+                <div>Total Cost:
+                    {{ "$%.2f"|format(booking.total_cost) }}</div>
+                <div>Start:
+                    {{ booking.start_datetime.strftime('%A, %d-%m-%Y %H:%M') }}</div>
+                <div>End:
+                    {{ booking.end_datetime.strftime('%A, %d-%m-%Y %H:%M') }}</div>
+            </div>
+            <div
+                class="google_calendar">
+                <!--Add buttons to insert event into calendar-->
+                <button id="add_button">Add To Calendar</button>
+                <span id="content" style="white-space: pre-wrap;"></span>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        window.appConfig = {
+            car_make: "{{ car.make }}",
+            car_full_address: "{{ car.address }},       {{ car.suburb }}",
+            start_datetime: "{{ booking.start_datetime.strftime('%Y-%m-%dT%H:%M:%S') }}",
+            end_datetime: "{{ booking.end_datetime.strftime('%Y-%m-%dT%H:%M:%S') }}",
+            booking_id: "{{ booking.id }}"
+        }
+    </script>
+    <script type="text/javascript" src="{{ url_for( 'static', filename='js/booking_detail.js') }}"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+{% endblock content %}

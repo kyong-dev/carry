@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="GET" action="">
+        <div class="row" style="margin-top: 30px;">
+            <div class="six columns">
+                <h4>Find Car</h4>
+            </div>
+            <div class="six columns">
+                <div class="search">
+                    <input type="text" class="searchTerm" id="search" name="search" placeholder="Search By Feature"/>
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{ map.html }}
+
+        <div class="datetimePicker">
+            <div class="row">
+                <div class="six columns">
+                    <label for="start_date" class="fix columns font">Booking Start</label>
+                    <input type="date" class="date_picker" id="start_date" name="start_date" onchange="date_validator()"/>
+                    <select class="time_picker" id="start_time" name="start_time" onchange="date_validator()">
+                        <option value="0">00:00 am</option>
+                        <option value="1">1:00 am</option>
+                        <option value="2">2:00 am</option>
+                        <option value="3">3:00 am</option>
+                        <option value="4">4:00 am</option>
+                        <option value="5">5:00 am</option>
+                        <option value="6">6:00 am</option>
+                        <option value="7">7:00 am</option>
+                        <option value="8">8:00 am</option>
+                        <option value="9">9:00 am</option>
+                        <option value="10">10:00 am</option>
+                        <option value="11">11:00 am</option>
+                        <option value="12">12:00 pm</option>
+                        <option value="13">1:00 pm</option>
+                        <option value="14">2:00 pm</option>
+                        <option value="15">3:00 pm</option>
+                        <option value="16">4:00 pm</option>
+                        <option value="17">5:00 pm</option>
+                        <option value="18">6:00 pm</option>
+                        <option value="19">7:00 pm</option>
+                        <option value="20">8:00 pm</option>
+                        <option value="21">9:00 pm</option>
+                        <option value="22">10:00 pm</option>
+                        <option value="23">11:00 pm</option>
+                    </select>
+                </div>
+                <div class="six columns">
+                    <label for="end_date" class="fix columns font">Booking End</label>
+                    <input type="date" class="date_picker" id="end_date" name="end_date" onchange="date_validator()"/>
+                    <select class="time_picker" id="end_time" name="end_time" onchange="date_validator()">
+                        <option value="0">00:00 am</option>
+                        <option value="1">1:00 am</option>
+                        <option value="2">2:00 am</option>
+                        <option value="3">3:00 am</option>
+                        <option value="4">4:00 am</option>
+                        <option value="5">5:00 am</option>
+                        <option value="6">6:00 am</option>
+                        <option value="7">7:00 am</option>
+                        <option value="8">8:00 am</option>
+                        <option value="9">9:00 am</option>
+                        <option value="10">10:00 am</option>
+                        <option value="11">11:00 am</option>
+                        <option value="12">12:00 pm</option>
+                        <option value="13">1:00 pm</option>
+                        <option value="14">2:00 pm</option>
+                        <option value="15">3:00 pm</option>
+                        <option value="16">4:00 pm</option>
+                        <option value="17">5:00 pm</option>
+                        <option value="18">6:00 pm</option>
+                        <option value="19">7:00 pm</option>
+                        <option value="20">8:00 pm</option>
+                        <option value="21">9:00 pm</option>
+                        <option value="22">10:00 pm</option>
+                        <option value="23">11:00 pm</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="nine columns">
+                    Duration:
+                    <span id="duration_display"></span>
+                    hours
+                </div>
+                <div class="three columns">
+                    <button class="time_set_btn" id="searchSubmit" type="submit">Search</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <form method="POST" action="/booking" class="booking" id="booking">
+        {{ form.hidden_tag() }}
+        <!-- DateTime Picker -->
+        <table class="u-full-width" id="car_table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Make</th>
+                    <th>Body Type</th>
+                    <th>Colour</th>
+                    <th>Seats</th>
+                    <th>Hourly</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if car_list == [] %}
+                    <tr class="car_row">
+                        <td colspan="6" style="text-align: center;">None</td>
+                    </tr>
+                {% else %}
+                    {% for car in car_list %}
+                        <tr class="car_row" onclick="document.getElementById('{{ car.id }}').click();">
+                            <td><input type="radio" name="car_id" id="{{ car.id }}" value="{{ car.id }}" style="margin-top: 10px;"/></td>
+                            <td>
+                                <div class="popover__wrapper">
+                                    <span class="popover__title">{{ car.make }}</span>
+                                    <div class="popover__content">
+                                        <p class="popover__message">{{ car.address }},
+                                            {{ car.suburb }}
+                                            {{ car.state }}
+                                            {{ car.postcode }}</p>
+                                        <img style="width: 300px;" alt="car image" src="{{ url_for( 'static', filename='image/car/'+car.img_url) }}"></div>
+                                    </div>
+                                </td>
+                                <td>{{ car.body_type }}</td>
+                                <td>{{ car.colour }}</td>
+                                <td>{{ car.seats }}</td>
+                                <td>{{ "$%.2f"|format(car.cost) }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    {{ form.user_id(value=current_user.id) }}
+                </tbody>
+            </table>
+            <div style="text-align: center;">
+                {{ form.submit(class="button", id="bookingButton") }}
+            </div>
+        </form>
+
+
+        <script>
+            window.appConfig = {
+                user_location: JSON.parse('{{ current_user.location | tojson }}'),
+                car_list: JSON.parse('{{ car_list | tojson }}'),
+                bookedCars: JSON.parse('{{ bookedCars | tojson }}'),
+                available: '{{ url_for("static", filename="image/available.png") }}',
+                unavailable: '{{ url_for("static", filename="image/unavailable.png") }}'
+            }
+        </script>
+        <script type="text/javascript" src="{{ url_for( 'static', filename='js/map.js') }}"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=GOOGLEMAP_API_KEY&callback=initMap"></script>
+        <script type="text/javascript" src="{{ url_for( 'static', filename='js/home.js') }}"></script>
+    {% endblock content %}

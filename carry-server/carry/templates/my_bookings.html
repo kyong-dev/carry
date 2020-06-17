@@ -1,0 +1,201 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="bookings_container">
+        <fieldset>
+            <legend class="booking_form_title">My Bookings</legend>
+        </fieldset>
+
+        <div class="valid_bookings_container">
+            <div class="valid_bookings">
+                <h4>Current/Future Carry Bookings</h4>
+
+                {% if valid_bookings %}
+                    <table class="u-full-width">
+                        <tr>
+                            <td>ID</td>
+                            <td>Start</td>
+                            <td>End</td>
+                            <td>Duration</td>
+                            <td>Vehicle</td>
+                            <td style="min-width: 150px;">Location</td>
+                            <td>Made</td>
+                            <td>Driver</td>
+                            <td>Status</td>
+                            <td></td>
+                        </tr>
+                        {% for booking in valid_bookings %}
+                            <tr>
+                                <td>{{ booking.Booking.id }}</td>
+                                <td>{{ booking.Booking.start_datetime.strftime('%d-%m-%y %H:%M') }}</td>
+                                <td>{{ booking.Booking.end_datetime.strftime('%d-%m-%y %H:%M') }}</td>
+                                <td>{{ booking.Booking.duration }}
+                                    hours</td>
+                                <td>{{ booking.Car.make }}</td>
+                                <td style="min-width: 150px;">{{ booking.Car.address }},
+                                    {{ booking.Car.suburb }}
+                                    {{ booking.Car.state }}
+                                    {{ booking.Car.postcode }}</td>
+                                <td>{{ booking.Booking.booking_datetime.strftime('%d-%m-%y %H:%M') }}</td>
+                                <td>{{ current_user.firstname }}
+                                    {{ current_user.lastname }}</td>
+                                <td>{% if booking.Booking.started %}
+                                        Started 
+                                        <!-- {% for log in booking.Booking.logs %}
+                                            {{log.status}}
+                                        {% endfor %} -->
+                                        {{booking.Booking.logs[-1].status}}
+                                    {% else %}
+                                        Booked
+                                    {% endif %}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                        <div class="dropdown-content">
+                                            <div class="cancelBtn" onclick="cancelConfirm('{{ booking.Booking.id }}', '{{ booking.Booking.calendar_eid }}')">Cancel</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    No bookings found.
+                {% endif %}
+            </div>
+        </div>
+        <div class="past_bookings_container">
+            <div class="past_bookings">
+                <h4>Past Carry Bookings</h4>
+                {% if past_bookings %}
+                    <table class="u-full-width">
+                        <tr>
+                            <td>ID</td>
+                            <td>Start</td>
+                            <td>End</td>
+                            <td>Duration</td>
+                            <td>Vehicle</td>
+                            <td>Location</td>
+                            <td>Made</td>
+                            <td>Driver</td>
+                            <td>Status</td>
+                        </tr>
+                        {% for booking in past_bookings %}
+                            <tr>
+                                <td>{{ booking.Booking.id }}</td>
+                                <td>{{ booking.Booking.start_datetime.strftime('%d-%m-%y %H:%M') }}</td>
+                                <td>{{ booking.Booking.end_datetime.strftime('%d-%m-%y %H:%M') }}</td>
+                                <td>{{ booking.Booking.duration }}
+                                    hours</td>
+                                <td>{{ booking.Car.make }}</td>
+                                <td style="min-width: 150px;">{{ booking.Car.address }},
+                                    {{ booking.Car.suburb }}
+                                    {{ booking.Car.state }}
+                                    {{ booking.Car.postcode }}</td>
+                                <td>{{ booking.Booking.booking_datetime.strftime('%d-%m-%y %H:%M') }}</td>
+                                <td>{{ current_user.firstname }}
+                                    {{ current_user.lastname }}</td>
+                                {% if booking.Booking.finished %}
+                                    <td>Finished</td>
+                                {% elif booking.Booking.cancelled %}
+                                    <td>Cancelled</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    No bookings found.
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function cancelConfirm(id, eid) {
+            var reponse = confirm("Are you sure to cancel the booking?");
+            if (reponse == true) {
+                var booking = {
+                    "id": id,
+                    "eid": eid
+                }
+                fetch("/my_bookings/cancel", {
+                    method: "POST",
+                    credentials: "include",
+                    body: JSON.stringify(booking),
+                    cache: "no-cache",
+                    headers: new Headers(
+                        {"content-type": "application/json"}
+                    )
+                }).then(res => {
+                    if (eid != "None") {
+                        handleDelete(eid);
+                    }
+                    location.reload();
+                });
+
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        // Client ID and API key from the Developer Console
+        var CLIENT_ID = '234950171399-09o9ani0c3ut1brov77vq24ovm4pr3i8.apps.googleusercontent.com';
+        var API_KEY = 'AIzaSyA1h5KTHKlyU2WUAO5xONKZZ50zijczn5Y';
+
+        // Array of API discovery doc URLs for APIs used by the quickstart
+        var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+        // Authorization scopes required by the API; multiple scopes can be
+        // included, separated by spaces.
+        var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+
+        /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+        function handleClientLoad() {
+            gapi.load('client:auth2', initClient);
+        }
+
+        /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+        function initClient() {
+            gapi.client.init({apiKey: API_KEY, clientId: CLIENT_ID, discoveryDocs: DISCOVERY_DOCS, scope: SCOPES}).catch(function (error) {
+                console.log(JSON.stringify(error, null, 2));
+            });
+        }
+
+        /**
+       *  Sign in the user upon button click.
+       */
+        function handleDelete(eid) {
+            if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
+                gapi.auth2.getAuthInstance().signIn().then(() => {
+                    if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
+                        deleteEvent(eid);
+                    }
+                });
+            } else {
+                deleteEvent(eid);
+            }
+        }
+
+        /**
+       * delete the event in the authorized user's calendar. If no events are found an
+       * appropriate message is printed.
+       */
+        function deleteEvent(eid) {
+            gapi.client.load('calendar', 'v3', function () {
+                var request = gapi.client.calendar.events.delete({'calendarId': 'primary', 'eventId': eid});
+                request.execute(function (response) {
+                    if (response.error || response == false) {
+                        alert('Error');
+                    } else {
+                        alert('Event has been successfully deleted from your calendar');
+                        gapi.auth2.getAuthInstance().signOut();
+                        location.reload();
+                    }
+                });
+            });
+        }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+{% endblock content %}

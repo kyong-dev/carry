@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="booking_form_container">
+        <form method="POST" action="/booking/detail">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend class="booking_form_title">Make New Booking for
+                    {{ car.make }}</legend>
+            </fieldset>
+            <div class="row">
+                <div class="car_detail_img_container">
+                    <img class="car_detail_img" alt="car image" src="{{ url_for( 'static', filename='image/car/'+car.img_url) }}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight columns">
+                    <div class="booking_form">
+                        <div class="row">
+                            <div class="four columns">
+                                <div class="booking_form_label">Car No.
+                                    {{ car.id }}</div>
+                            </div>
+                            <div class="eight columns">{{ car.make }}/
+                                {{ car.body_type }}/
+                                {{ car.seats }}
+                                seats/
+                                {{ car.colour }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">Location</div>
+                            <div class="eight columns">{{ car.address }}
+                                {{ car.suburb }},
+                                {{ car.state }}
+                                {{ car.postcode }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">Booking Start</div>
+                            <div class="eight columns">{{ start_datetime.strftime('%d-%m-%Y %H:%M') }}</div>
+
+                        </div>
+                        <div class="row">
+                            <div class="four columns">Booking End</div>
+                            <div class="eight columns">{{ end_datetime.strftime('%d-%m-%Y %H:%M') }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">Duration</div>
+                            <div class="eight columns">{{ duration }}
+                                hours</div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">Driver</div>
+                            <div class="eight columns">{{ current_user.firstname }},
+                                {{ current_user.lastname }}
+                                ({{ current_user.username }})</div>
+                        </div>
+                        <hr style="margin: 5px;"/>
+                        <div class="row">
+                            <div class="four columns">Estimated Total</div>
+                            <div class="eight columns">{{ "$%.2f"|format(car.cost) }}
+                                x
+                                {{ duration }}
+                                =
+                                {{ "$%.2f"|format(car.cost * (duration|int)) }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four columns">
+                    <div class="row">
+                        <div class="detail_map_container">
+                            {{ map.html }}
+                            {{ map.js }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.js"></script>
+            <div id="dropin-container"></div>
+
+            <div class="booking_submit_button">
+                {{ form.submit(class="button", id="submit-button") }}
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="{{ url_for( 'static', filename='js/dropin.js') }}"></script>
+{% endblock content %}

@@ -1,0 +1,189 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/available.png') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+
+    <link href="/static/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet"/>
+    <link href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet"/>
+    <link type="text/css" href="/static/assets/css/argon.css?v=1.0.0" rel="stylesheet"/>
+
+{% endblock head_css %}
+{% block body %}
+    <!-- Main content -->
+    <div
+        class="main-content">
+        <!-- Header -->
+        {% include 'admin/includes/top-stats.html' %}
+
+        <!-- Page content -->
+        <div class="container-fluid mt--7">
+            <div class="row">
+                <div class="col-xl-8 mb-5 mb-xl-0">
+                    <div class="card bg-gradient-default shadow">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                                    <h2 class="text-white mb-0">Sales value</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="card-body">
+                            <!-- Chart -->
+                            <div
+                                class="chart">
+                                <!-- Chart wrapper -->
+                                <canvas id="chart-sales" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="card shadow">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
+                                    <h2 class="mb-0">Total Bookings</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="card-body">
+                            <!-- Chart -->
+                            <div class="chart">
+                                <canvas id="chart-orders" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-xl-8 mb-5 mb-xl-0">
+                    <div class="card shadow">
+                        <div class="card-header border-0">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Cancellation Rate</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="table-responsive">
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Month</th>
+                                        <th scope="col" style="text-align: center;">Total</th>
+                                        <th scope="col" style="text-align: center;">Cancel</th>
+                                        <th scope="col" colspan="2" style="text-align: center;">Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cancel_list %}
+                                        <tr>
+                                            <th scope="row">
+                                                <div>
+                                                    {{ item.month }}
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <div style="text-align: center;">
+                                                    {{ item.total }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="text-align: center;">
+                                                    {{ item.cancel }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="text-align: right;">
+                                                    {{ item.rate }}%
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex" style="text-align: left;">
+                                                    <div class="progress">
+                                                        <div class="progress-bar
+                                                        {% if item.rate > 20 %}
+                                                        bg-gradient-danger
+                                                        {% elif item.rate > 10 %}
+                                                        bg-gradient-info
+                                                        {% elif item.rate > 5 %}
+                                                        bg-gradient-primary
+                                                        {% elif item.rate > 3 %}
+                                                        bg-gradient-success
+                                                        {% endif %}
+                                                        " role="progressbar" aria-valuenow="{{ item.rate }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ item.rate }}%;"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="card shadow">
+                        <div class="card-header border-0">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Revenue Per Car</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="table-responsive">
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Car Make</th>
+                                        <th scope="col">Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for car in car_profit_list %}
+                                    <tr>
+                                        <th scope="row">
+                                            {{ car.make }}
+                                        </th>
+                                        <td>
+                                            {{ "$%.2f"|format(car.total_cost) }}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="data_studio">
+                <iframe width="100%" height="420" src="https://datastudio.google.com/embed/reporting/ecacfb0c-6b0e-4ad9-9425-7b63dbe131df/page/la8SB" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    {% include 'admin/includes/footer.html' %}
+    <script>
+        window.appConfig = {
+            sales_list: JSON.parse('{{ sales_list | tojson }}'),
+            booking_list: JSON.parse('{{ booking_list | tojson }}')
+        }
+    </script>
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="/static/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/static/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Optional JS -->
+    <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Argon JS -->
+    <script src="/static/assets/js/argon.js?v=1.0.0"></script>
+{% endblock body %}

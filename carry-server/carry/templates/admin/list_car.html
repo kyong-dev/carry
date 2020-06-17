@@ -1,0 +1,48 @@
+{% extends 'admin/model/list.html' %}
+{% block list_header %}
+{{ super() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <style>
+        .quick_search {
+            color: #fff !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #49b6ff;
+            border-radius: 5px;
+            width: 45px;
+            padding: 7px;
+            border: none;
+            transition: all 0.4s ease 0s;
+        }
+        .fa-microphone {
+            font-size: 24px;
+        }
+    </style>
+{% endblock %}
+{% block model_menu_bar_after_filters %}
+{{ super() }}
+    <li id="here" class="form-row">
+        <button class="quick_search" onclick="quick_search()">
+            <i id="microphone" class="fa fa-microphone"></i>
+            <i id="loading" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+        </button>
+    </li>
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    <form id="reportForm" action="/admin/report/new" method="POST">
+        <input id="car_id" name="car_id" type="hidden"/>
+        <input type="hidden" id="detail" name="detail"/>
+    </form>
+    <script>
+        document.getElementById("loading").style.display = "None"
+        function quick_search() {
+            window.location = "/admin/car/search";
+            setTimeout(() => {
+                document.getElementById("microphone").style.display = "None";
+                document.getElementById("loading").style.display = "block";
+            }, 1000)
+
+        }
+    </script>
+{% endblock body %}

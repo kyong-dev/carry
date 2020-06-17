@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="form_container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend class="form_title">Login</legend>
+                <div class="row">
+                    <div class="u-full-width">
+                        {{ form.username.label(class="") }}
+                        {{ form.username(class="u-full-width") }}
+                        {% if form.username.errors %}
+                            <div class="u-pull-left alert-msg">
+                                {% for error in form.username.errors %}
+                                    <span>
+                                        {{ error }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="u-full-width">
+                        {{ form.password.label(class="") }}
+                        {{ form.password(class="u-full-width") }}
+                        {% if form.password.errors %}
+                            <div class="u-pull-left alert-msg">
+                                {% for error in form.password.errors %}
+                                    <span>
+                                        {{ error }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </fieldset>
+            <div class="row remember-checkbox">
+                <label>
+                    {{ form.remember() }}
+                    {{ form.remember.label(class="label-body") }}
+                </label>
+            </div>
+            <div class="row">
+                {{ form.submit(class="button-primary u-full-width") }}
+            </div>
+            <a href="{{ url_for('register') }}"> Not a member yet? Join Today! </a>
+        </form>
+    </div>
+
+    <!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
+
+    <!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->
+
+{% endblock content %}

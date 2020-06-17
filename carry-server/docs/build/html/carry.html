@@ -1,0 +1,2732 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>carry package &#8212; Carry 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="run module" href="run.html" />
+    <link rel="prev" title="carry-admin" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="carry-package">
+<h1>carry package<a class="headerlink" href="#carry-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-carry.admin_routes">
+<span id="carry-admin-routes-module"></span><h2>carry.admin_routes module<a class="headerlink" href="#module-carry.admin_routes" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="carry.admin_routes.BookingView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">BookingView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.contrib.sqla.view.ModelView</span></code></p>
+<p>Default Flask-Admin Model View for Booking</p>
+<p>this gives you a set of fully featured CRUD views for your model:
+• A list view, with support for searching, sorting, filtering, and deleting records.
+• A create view for adding new records.
+• An edit view for updating existing records.
+• An optional, read-only details view.</p>
+<p>Form Validation by using WTF-form</p>
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.action_view">
+<code class="sig-name descname">action_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.action_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass-model action view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.ajax_lookup">
+<code class="sig-name descname">ajax_lookup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.ajax_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.ajax_update">
+<code class="sig-name descname">ajax_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.ajax_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a single column of a record in list view.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.BookingView.can_view_details">
+<code class="sig-name descname">can_view_details</code><em class="property"> = True</em><a class="headerlink" href="#carry.admin_routes.BookingView.can_view_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.BookingView.column_list">
+<code class="sig-name descname">column_list</code><em class="property"> = ('id', 'reference', 'user_id', 'car_id', 'total_cost', 'start_datetime', 'end_datetime', 'booking_datetime', 'started', 'finished', 'cancelled')</em><a class="headerlink" href="#carry.admin_routes.BookingView.column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.BookingView.column_searchable_list">
+<code class="sig-name descname">column_searchable_list</code><em class="property"> = ['reference', 'user_id', 'car_id', 'started', 'finished', 'cancelled']</em><a class="headerlink" href="#carry.admin_routes.BookingView.column_searchable_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.create_view">
+<code class="sig-name descname">create_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.create_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.delete_view">
+<code class="sig-name descname">delete_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.delete_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete model view. Only POST method is allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.details_view">
+<code class="sig-name descname">details_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.details_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.edit_view">
+<code class="sig-name descname">edit_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.edit_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">export_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.BookingView.form_args">
+<code class="sig-name descname">form_args</code><em class="property"> = {'car_id': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'duration': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.NumberRange object&gt;]}, 'reference': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'total_cost': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.NumberRange object&gt;]}, 'user_id': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}}</em><a class="headerlink" href="#carry.admin_routes.BookingView.form_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.BookingView.form_base_class">
+<code class="sig-name descname">form_base_class</code><a class="headerlink" href="#carry.admin_routes.BookingView.form_base_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.form.SecureForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.inaccessible_callback">
+<code class="sig-name descname">inaccessible_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.inaccessible_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the response to inaccessible views.</p>
+<p>By default, it throw HTTP 403 error. Override this method to
+customize the behaviour.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.index_view">
+<code class="sig-name descname">index_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.index_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>List view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.BookingView.is_accessible">
+<code class="sig-name descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.BookingView.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to add permission checks.</p>
+<p>Flask-Admin does not make any assumptions about the authentication system used in your application, so it is
+up to you to implement it.</p>
+<p>By default, it will allow access for everyone.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.CarView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">CarView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.contrib.sqla.view.ModelView</span></code></p>
+<p>Default Flask-Admin Model View for Car</p>
+<p>this gives you a set of fully featured CRUD views for your model:
+• A list view, with support for searching, sorting, filtering, and deleting records.
+• A create view for adding new records.
+• An edit view for updating existing records.
+• An optional, read-only details view.</p>
+<p>Form Validation by using WTF-form</p>
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.action_view">
+<code class="sig-name descname">action_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.action_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass-model action view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.ajax_lookup">
+<code class="sig-name descname">ajax_lookup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.ajax_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.ajax_update">
+<code class="sig-name descname">ajax_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.ajax_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a single column of a record in list view.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.CarView.can_view_details">
+<code class="sig-name descname">can_view_details</code><em class="property"> = True</em><a class="headerlink" href="#carry.admin_routes.CarView.can_view_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.CarView.column_formatters">
+<code class="sig-name descname">column_formatters</code><em class="property"> = {'Report': &lt;function CarView._report&gt;}</em><a class="headerlink" href="#carry.admin_routes.CarView.column_formatters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.CarView.column_list">
+<code class="sig-name descname">column_list</code><em class="property"> = ('id', 'make', 'body_type', 'colour', 'seats', 'cost', 'address', 'suburb', 'state', 'postcode', 'lat', 'lng', 'img_url', 'Report')</em><a class="headerlink" href="#carry.admin_routes.CarView.column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.CarView.column_searchable_list">
+<code class="sig-name descname">column_searchable_list</code><em class="property"> = ['id', 'make', 'body_type', 'colour', 'seats', 'cost', 'address', 'suburb', 'state', 'postcode']</em><a class="headerlink" href="#carry.admin_routes.CarView.column_searchable_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.create_view">
+<code class="sig-name descname">create_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.create_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.delete_view">
+<code class="sig-name descname">delete_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.delete_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete model view. Only POST method is allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.details_view">
+<code class="sig-name descname">details_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.details_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.edit_view">
+<code class="sig-name descname">edit_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.edit_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">export_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.CarView.form_args">
+<code class="sig-name descname">form_args</code><em class="property"> = {'address': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'body_type': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'colour': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'cost': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.NumberRange object&gt;]}, 'img_url': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'make': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'postcode': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'seats': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.NumberRange object&gt;]}, 'state': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'suburb': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}}</em><a class="headerlink" href="#carry.admin_routes.CarView.form_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.CarView.form_base_class">
+<code class="sig-name descname">form_base_class</code><a class="headerlink" href="#carry.admin_routes.CarView.form_base_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.form.SecureForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.inaccessible_callback">
+<code class="sig-name descname">inaccessible_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.inaccessible_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the response to inaccessible views.</p>
+<p>By default, it throw HTTP 403 error. Override this method to
+customize the behaviour.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.index_view">
+<code class="sig-name descname">index_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.index_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>List view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.is_accessible">
+<code class="sig-name descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to add permission checks.</p>
+<p>Flask-Admin does not make any assumptions about the authentication system used in your application, so it is
+up to you to implement it.</p>
+<p>By default, it will allow access for everyone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.CarView.render">
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">template</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarView.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>using extra js in render method allow use
+url_for that itself requires an app context</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.CarryView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">CarryView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_url_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.base.BaseView</span></code></p>
+<p>Flask-Admin Custom Menu for going back to the customer website</p>
+<dl class="py method">
+<dt id="carry.admin_routes.CarryView.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.CarryView.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.LogView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">LogView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.contrib.sqla.view.ModelView</span></code></p>
+<p>Default Flask-Admin Model View for Log</p>
+<p>this gives you a set of fully featured CRUD views for your model:
+• A list view, with support for searching, sorting, filtering, and deleting records.
+• A create view for adding new records.
+• An edit view for updating existing records.
+• An optional, read-only details view.</p>
+<p>Form Validation by using WTF-form</p>
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.action_view">
+<code class="sig-name descname">action_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.action_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass-model action view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.ajax_lookup">
+<code class="sig-name descname">ajax_lookup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.ajax_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.ajax_update">
+<code class="sig-name descname">ajax_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.ajax_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a single column of a record in list view.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.LogView.can_view_details">
+<code class="sig-name descname">can_view_details</code><em class="property"> = True</em><a class="headerlink" href="#carry.admin_routes.LogView.can_view_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.LogView.column_list">
+<code class="sig-name descname">column_list</code><em class="property"> = ('id', 'user_id', 'car_id', 'booking_id', 'lat', 'lng', 'status', 'datetime')</em><a class="headerlink" href="#carry.admin_routes.LogView.column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.LogView.column_searchable_list">
+<code class="sig-name descname">column_searchable_list</code><em class="property"> = ['user_id', 'car_id', 'booking_id', 'lat', 'lng', 'status']</em><a class="headerlink" href="#carry.admin_routes.LogView.column_searchable_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.create_view">
+<code class="sig-name descname">create_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.create_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.delete_view">
+<code class="sig-name descname">delete_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.delete_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete model view. Only POST method is allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.details_view">
+<code class="sig-name descname">details_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.details_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.edit_view">
+<code class="sig-name descname">edit_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.edit_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">export_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.LogView.form_args">
+<code class="sig-name descname">form_args</code><em class="property"> = {'booking_id': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'car_id': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'lat': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'lng': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'status': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'user_id': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}}</em><a class="headerlink" href="#carry.admin_routes.LogView.form_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.LogView.form_base_class">
+<code class="sig-name descname">form_base_class</code><a class="headerlink" href="#carry.admin_routes.LogView.form_base_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.form.SecureForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.inaccessible_callback">
+<code class="sig-name descname">inaccessible_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.inaccessible_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the response to inaccessible views.</p>
+<p>By default, it throw HTTP 403 error. Override this method to
+customize the behaviour.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.index_view">
+<code class="sig-name descname">index_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.index_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>List view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.LogView.is_accessible">
+<code class="sig-name descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogView.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to add permission checks.</p>
+<p>Flask-Admin does not make any assumptions about the authentication system used in your application, so it is
+up to you to implement it.</p>
+<p>By default, it will allow access for everyone.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.LogoutView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">LogoutView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_url_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogoutView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.base.BaseView</span></code></p>
+<p>Flask-Admin Custom Menu for logging out</p>
+<dl class="py method">
+<dt id="carry.admin_routes.LogoutView.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.LogoutView.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.MyHomeView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">MyHomeView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">template</span><span class="o">=</span><span class="default_value">'admin/index.html'</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.MyHomeView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.base.AdminIndexView</span></code></p>
+<p>Flask-Admin Custom Index View for dashboard page</p>
+<dl class="py method">
+<dt id="carry.admin_routes.MyHomeView.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.MyHomeView.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retieve all the useful data to draw diagrams and graphs</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.QRCodeView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">QRCodeView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_url_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.QRCodeView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.base.BaseView</span></code></p>
+<p>Flask-Admin Custom Menu for QR code</p>
+<dl class="py method">
+<dt id="carry.admin_routes.QRCodeView.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.QRCodeView.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.ReportView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">ReportView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.contrib.sqla.view.ModelView</span></code></p>
+<p>Default Flask-Admin Model View for Report</p>
+<p>this gives you a set of fully featured CRUD views for your model:
+• A list view, with support for searching, sorting, filtering, and deleting records.
+• A create view for adding new records.
+• An edit view for updating existing records.
+• An optional, read-only details view.</p>
+<p>Form Validation by using WTF-form</p>
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.action_view">
+<code class="sig-name descname">action_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.action_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass-model action view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.ajax_lookup">
+<code class="sig-name descname">ajax_lookup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.ajax_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.ajax_update">
+<code class="sig-name descname">ajax_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.ajax_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a single column of a record in list view.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.can_create">
+<code class="sig-name descname">can_create</code><em class="property"> = False</em><a class="headerlink" href="#carry.admin_routes.ReportView.can_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.can_delete">
+<code class="sig-name descname">can_delete</code><em class="property"> = False</em><a class="headerlink" href="#carry.admin_routes.ReportView.can_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.can_view_details">
+<code class="sig-name descname">can_view_details</code><em class="property"> = True</em><a class="headerlink" href="#carry.admin_routes.ReportView.can_view_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.column_formatters">
+<code class="sig-name descname">column_formatters</code><em class="property"> = {'Direct': &lt;function ReportView._direct&gt;, 'Map': &lt;function ReportView._map&gt;}</em><a class="headerlink" href="#carry.admin_routes.ReportView.column_formatters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.column_labels">
+<code class="sig-name descname">column_labels</code><em class="property"> = {'completed_datetime': 'completed', 'reported_datetime': 'reported', 'user_id': 'done by (user_id)'}</em><a class="headerlink" href="#carry.admin_routes.ReportView.column_labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.column_list">
+<code class="sig-name descname">column_list</code><em class="property"> = ('id', 'car_id', 'detail', 'reported_datetime', 'completed', 'user_id', 'completed_datetime', 'Map', 'Direct')</em><a class="headerlink" href="#carry.admin_routes.ReportView.column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.column_searchable_list">
+<code class="sig-name descname">column_searchable_list</code><em class="property"> = ['car_id', 'detail', 'completed']</em><a class="headerlink" href="#carry.admin_routes.ReportView.column_searchable_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.create_view">
+<code class="sig-name descname">create_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.create_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.delete_view">
+<code class="sig-name descname">delete_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.delete_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete model view. Only POST method is allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.details_view">
+<code class="sig-name descname">details_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.details_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.edit_view">
+<code class="sig-name descname">edit_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.edit_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">export_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.form_args">
+<code class="sig-name descname">form_args</code><em class="property"> = {'car_id': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'completed': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'datetime': {'validators': [&lt;wtforms.validators.DataRequired object&gt;]}, 'detail': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}}</em><a class="headerlink" href="#carry.admin_routes.ReportView.form_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.ReportView.form_base_class">
+<code class="sig-name descname">form_base_class</code><a class="headerlink" href="#carry.admin_routes.ReportView.form_base_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.form.SecureForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.inaccessible_callback">
+<code class="sig-name descname">inaccessible_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.inaccessible_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>redirect to login page if user doesn’t have access</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.index_view">
+<code class="sig-name descname">index_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.index_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>List view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.is_accessible">
+<code class="sig-name descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if the user is logged in</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.ReportView.render">
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">template</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.ReportView.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>using extra js in render method allow use
+url_for that itself requires an app context</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.SearchView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">SearchView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_url_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.SearchView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.base.BaseView</span></code></p>
+<p>Flask-Admin Custom Menu for searching cars</p>
+<dl class="py method">
+<dt id="carry.admin_routes.SearchView.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.SearchView.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.admin_routes.UserView">
+<em class="property">class </em><code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">UserView</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endpoint</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_folder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_class_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">menu_icon_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.contrib.sqla.view.ModelView</span></code></p>
+<p>Default Flask-Admin Model View for User</p>
+<p>this gives you a set of fully featured CRUD views for your model:
+• A list view, with support for searching, sorting, filtering, and deleting records.
+• A create view for adding new records.
+• An edit view for updating existing records.
+• An optional, read-only details view.</p>
+<p>Form Validation by using WTF-form</p>
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.action_view">
+<code class="sig-name descname">action_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.action_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass-model action view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.ajax_lookup">
+<code class="sig-name descname">ajax_lookup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.ajax_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.ajax_update">
+<code class="sig-name descname">ajax_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.ajax_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a single column of a record in list view.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.UserView.can_view_details">
+<code class="sig-name descname">can_view_details</code><em class="property"> = True</em><a class="headerlink" href="#carry.admin_routes.UserView.can_view_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.UserView.column_list">
+<code class="sig-name descname">column_list</code><em class="property"> = ('id', 'username', 'email', 'firstname', 'lastname', 'profile_url', 'location', 'auth')</em><a class="headerlink" href="#carry.admin_routes.UserView.column_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.UserView.column_searchable_list">
+<code class="sig-name descname">column_searchable_list</code><em class="property"> = ['id', 'username', 'email', 'firstname', 'lastname']</em><a class="headerlink" href="#carry.admin_routes.UserView.column_searchable_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.create_view">
+<code class="sig-name descname">create_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.create_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.delete_view">
+<code class="sig-name descname">delete_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.delete_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete model view. Only POST method is allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.details_view">
+<code class="sig-name descname">details_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.details_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Details model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.edit_view">
+<code class="sig-name descname">edit_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.edit_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit model view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">export_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.UserView.form_args">
+<code class="sig-name descname">form_args</code><em class="property"> = {'auth': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'email': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]}, 'firstname': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'lastname': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'location': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'profile_url': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}, 'username': {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]}}</em><a class="headerlink" href="#carry.admin_routes.UserView.form_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.admin_routes.UserView.form_base_class">
+<code class="sig-name descname">form_base_class</code><a class="headerlink" href="#carry.admin_routes.UserView.form_base_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.form.SecureForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.inaccessible_callback">
+<code class="sig-name descname">inaccessible_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.inaccessible_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the response to inaccessible views.</p>
+<p>By default, it throw HTTP 403 error. Override this method to
+customize the behaviour.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.index_view">
+<code class="sig-name descname">index_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.index_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>List view</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.admin_routes.UserView.is_accessible">
+<code class="sig-name descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.UserView.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to add permission checks.</p>
+<p>Flask-Admin does not make any assumptions about the authentication system used in your application, so it is
+up to you to implement it.</p>
+<p>By default, it will allow access for everyone.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.compare">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">compare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new</span></em>, <em class="sig-param"><span class="n">old</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method for comparing two figures and return the percentage of the difference</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.getDuration">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">getDuration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bookings</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.getDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method for getting total duration of bookings being input</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.getSales">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">getSales</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bookings</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.getSales" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method for getting total revenue of bookings being input</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.map">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Car location map page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.report">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">report</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>A http request page to creating a new report</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.search">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>A http request page to search a car</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.send_notification_via_pushbullet">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">send_notification_via_pushbullet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">title</span></em>, <em class="sig-param"><span class="n">body</span></em>, <em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.send_notification_via_pushbullet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sending notification via pushbullet.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.admin_routes.speakToSearch">
+<code class="sig-prename descclassname">carry.admin_routes.</code><code class="sig-name descname">speakToSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.admin_routes.speakToSearch" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method for voice recognition to search</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.database_utils">
+<span id="carry-database-utils-module"></span><h2>carry.database_utils module<a class="headerlink" href="#module-carry.database_utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="carry.database_utils.DatabaseUtils">
+<em class="property">class </em><code class="sig-prename descclassname">carry.database_utils.</code><code class="sig-name descname">DatabaseUtils</code><a class="headerlink" href="#carry.database_utils.DatabaseUtils" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Database Class</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class only contains methods for database connection.</p>
+</div>
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.addCalendarEventId">
+<code class="sig-name descname">addCalendarEventId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">booking_id</span></em>, <em class="sig-param"><span class="n">eid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.addCalendarEventId" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for adding a Google Calendar Event ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>booking_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Booking ID</p></li>
+<li><p><strong>eid</strong> (<em>int</em><em>, </em><em>essential</em>) – Google Calendar Event ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Booking Object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.cancelBooking">
+<code class="sig-name descname">cancelBooking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">booking_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.cancelBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for cancelling a booking</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>booking_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Booking ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Booking Object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.completeReport">
+<code class="sig-name descname">completeReport</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">report_id</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.completeReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for completing a report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>report_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Report ID</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Report object which is just completed</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.createNewCar">
+<code class="sig-name descname">createNewCar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">make</span></em>, <em class="sig-param"><span class="n">body_type</span></em>, <em class="sig-param"><span class="n">colour</span></em>, <em class="sig-param"><span class="n">seats</span></em>, <em class="sig-param"><span class="n">cost</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">suburb</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">postcode</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lng</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.createNewCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for creating a new car object in the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>make</strong> (<em>string</em><em>, </em><em>essential</em>) – Car Make</p></li>
+<li><p><strong>body_type</strong> (<em>string</em><em>, </em><em>essential</em>) – Car Body_type</p></li>
+<li><p><strong>colour</strong> (<em>string</em><em>, </em><em>essential</em>) – Car Colour</p></li>
+<li><p><strong>seats</strong> (<em>int</em><em>, </em><em>essential</em>) – No. Car Seats</p></li>
+<li><p><strong>cost</strong> (<em>float</em><em>, </em><em>essential</em>) – Car Hourly Cost</p></li>
+<li><p><strong>address</strong> (<em>String</em><em>, </em><em>essential</em>) – Car Address</p></li>
+<li><p><strong>suburb</strong> (<em>String</em><em>, </em><em>essential</em>) – Suburb</p></li>
+<li><p><strong>state</strong> (<em>String</em><em>, </em><em>essential</em>) – State</p></li>
+<li><p><strong>postcode</strong> (<em>String</em><em>, </em><em>essential</em>) – Postcode</p></li>
+<li><p><strong>lat</strong> (<em>float</em><em>, </em><em>essential</em>) – Latitude</p></li>
+<li><p><strong>lng</strong> (<em>float</em><em>, </em><em>essential</em>) – Longitude</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Car object if succesfully created, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.findUser">
+<code class="sig-name descname">findUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.findUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for finding user by searching username or user email</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>username</strong> (<em>string</em><em>, </em><em>essential</em>) – Username / User email</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User object if succesfully found, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getAllCars">
+<code class="sig-name descname">getAllCars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">search_input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getAllCars" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting cars by searching features</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>search_input</strong> (<em>string</em><em>, </em><em>essential</em>) – Search Input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of Car if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getAllEngineers">
+<code class="sig-name descname">getAllEngineers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getAllEngineers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting all engineers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of Engineer objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getAllPastBookings">
+<code class="sig-name descname">getAllPastBookings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getAllPastBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting all past bookings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bookings if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getAllPastUsers">
+<code class="sig-name descname">getAllPastUsers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getAllPastUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for obtaining past user (registered in 7 - 14 days) list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Users if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getAllRecentBookings">
+<code class="sig-name descname">getAllRecentBookings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getAllRecentBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting all recent bookings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bookings if succesfully found, None otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getAllRecentUsers">
+<code class="sig-name descname">getAllRecentUsers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getAllRecentUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for obtaining recent user (registered in 7 days) list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Users if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getBookedCars">
+<code class="sig-name descname">getBookedCars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">start_datetime</span></em>, <em class="sig-param"><span class="n">end_datetime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getBookedCars" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting booked cars by searching start_datetime and end_datetime</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>start_datetime</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Start Datetime</p></li>
+<li><p><strong>end_datetime</strong> (<em>datetime</em><em>, </em><em>essential</em>) – End Datetime</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of Booked Car if succesfully found,  an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getBooking">
+<code class="sig-name descname">getBooking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">booking_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting booking by searching booking_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>booking_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Booking ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Booking object if succesfully found, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getBookingList">
+<code class="sig-name descname">getBookingList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getBookingList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for obtaining booking list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Monthly number of booking list for the last 6 months</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getCancellationRates">
+<code class="sig-name descname">getCancellationRates</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getCancellationRates" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for obtaining cancellation rates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Total number of booking, cancellation and cancellation Rate</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getCar">
+<code class="sig-name descname">getCar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting car by searching car_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>car_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Car ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Car object if succesfully found, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getCurrentBooking">
+<code class="sig-name descname">getCurrentBooking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">now</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getCurrentBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting a current booking assigned to specific car and user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+<li><p><strong>car_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Car ID</p></li>
+<li><p><strong>now</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Current Datetime</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Booking if succesfully found, None otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getMyBookings">
+<code class="sig-name descname">getMyBookings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getMyBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting all bookings made by an user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of Bookings if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getMyPastBookings">
+<code class="sig-name descname">getMyPastBookings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">now</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getMyPastBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting all past bookings which are cancelled or finished made by an user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+<li><p><strong>now</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Current Datetime</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of Past Bookings if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getProfitPerCarList">
+<code class="sig-name descname">getProfitPerCarList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getProfitPerCarList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for obtaining the profit per car list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Total Revenue Per Car</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getReports">
+<code class="sig-name descname">getReports</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getReports" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for retrieving reports for specific car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>car_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Car ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Report object which is just completed</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getSalesList">
+<code class="sig-name descname">getSalesList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getSalesList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for obtaining list of sales</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Sales list if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getTodayBookings">
+<code class="sig-name descname">getTodayBookings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getTodayBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting today’s bookings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bookings if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getUser">
+<code class="sig-name descname">getUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting user by searching user_id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User object if succesfully found, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.getYesterdayBookings">
+<code class="sig-name descname">getYesterdayBookings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.getYesterdayBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting yesterday’s bookings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bookings if succesfully found, an empty list otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.logging">
+<code class="sig-name descname">logging</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">booking_id</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lng</span></em>, <em class="sig-param"><span class="n">status</span></em>, <em class="sig-param"><span class="n">datetime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for logging user activities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+<li><p><strong>car_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Car ID</p></li>
+<li><p><strong>booking_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Booking ID</p></li>
+<li><p><strong>lat</strong> (<em>float</em><em>, </em><em>essential</em>) – Latitude</p></li>
+<li><p><strong>lng</strong> (<em>float</em><em>, </em><em>essential</em>) – Longitude</p></li>
+<li><p><strong>status</strong> (<em>string</em><em>, </em><em>essential</em>) – Car Status</p></li>
+<li><p><strong>datetime</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Current Datetime</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Log object if succesfully created, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.loginWithBluetooth">
+<code class="sig-name descname">loginWithBluetooth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">macAddr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.loginWithBluetooth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.newBooking">
+<code class="sig-name descname">newBooking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">reference</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">start_datetime</span></em>, <em class="sig-param"><span class="n">end_datetime</span></em>, <em class="sig-param"><span class="n">booking_datetime</span></em>, <em class="sig-param"><span class="n">duration</span></em>, <em class="sig-param"><span class="n">total_cost</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.newBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for creating a new booking object in the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+<li><p><strong>car_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Car ID</p></li>
+<li><p><strong>start_datetime</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Booking Start Datetime</p></li>
+<li><p><strong>end_datetime</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Booking End Datetime</p></li>
+<li><p><strong>booking_datetime</strong> (<em>datetime</em><em>, </em><em>essential</em>) – Booking Made Datetime</p></li>
+<li><p><strong>duration</strong> (<em>int</em><em>, </em><em>essential</em>) – Booking Duration</p></li>
+<li><p><strong>total_cost</strong> (<em>float</em><em>, </em><em>essential</em>) – Booking Total Cost</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Booking Object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.newReport">
+<code class="sig-name descname">newReport</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">detail</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.newReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for creating a new report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>car_id</strong> (<em>int</em><em>, </em><em>essential</em>) – Car ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Report object which is just created</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.register">
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">email</span></em>, <em class="sig-param"><span class="n">hashed_password</span></em>, <em class="sig-param"><span class="n">firstname</span></em>, <em class="sig-param"><span class="n">lastname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for registering a new user in the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>username</strong> (<em>string</em><em>, </em><em>essential</em>) – Username</p></li>
+<li><p><strong>email</strong> (<em>string</em><em>, </em><em>essential</em>) – User Email</p></li>
+<li><p><strong>hashed_password</strong> (<em>string</em><em>, </em><em>essential</em>) – Hashed Password</p></li>
+<li><p><strong>firstname</strong> (<em>string</em><em>, </em><em>essential</em>) – Firstname</p></li>
+<li><p><strong>lastname</strong> (<em>string</em><em>, </em><em>essential</em>) – Lastname</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User object if succesfully created, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.updateMacAddr">
+<code class="sig-name descname">updateMacAddr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">macAddr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.updateMacAddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for updating mac address for engineers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>user_id</strong> (<em>int</em><em>, </em><em>essential</em>) – User ID</p></li>
+<li><p><strong>macAddr</strong> (<em>String</em><em>, </em><em>essential</em>) – Mac Address</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User object which is just updated</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.database_utils.DatabaseUtils.updateProfile">
+<code class="sig-name descname">updateProfile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">db</span></em>, <em class="sig-param"><span class="n">profile_url</span></em>, <em class="sig-param"><span class="n">firstname</span></em>, <em class="sig-param"><span class="n">lastname</span></em>, <em class="sig-param"><span class="n">location</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.database_utils.DatabaseUtils.updateProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for updating an existing user profile in the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>Database object</em><em>, </em><em>essential</em>) – Database</p></li>
+<li><p><strong>profile_url</strong> (<em>string</em><em>, </em><em>optional</em>) – Profile URL</p></li>
+<li><p><strong>firstname</strong> (<em>string</em><em>, </em><em>essential</em>) – Firstname</p></li>
+<li><p><strong>lastname</strong> (<em>string</em><em>, </em><em>essential</em>) – Lastname</p></li>
+<li><p><strong>location</strong> (<em>string</em><em>, </em><em>essential</em>) – Location</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User object if succesfully created, <cite>None</cite> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.fetch">
+<span id="carry-fetch-module"></span><h2>carry.fetch module<a class="headerlink" href="#module-carry.fetch" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="carry.fetch.booking_detail_event">
+<code class="sig-prename descclassname">carry.fetch.</code><code class="sig-name descname">booking_detail_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.fetch.booking_detail_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a calendar event id to the existing booking if the user adds an event to Google Calendar.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.fetch.my_bookings_cancel">
+<code class="sig-prename descclassname">carry.fetch.</code><code class="sig-name descname">my_bookings_cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.fetch.my_bookings_cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a booking by a user request.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.forms">
+<span id="carry-forms-module"></span><h2>carry.forms module<a class="headerlink" href="#module-carry.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="carry.forms.BookingForm">
+<em class="property">class </em><code class="sig-prename descclassname">carry.forms.</code><code class="sig-name descname">BookingForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.BookingForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>A flexible form validation for Booking Detail</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>formdata</strong> – Used to pass data coming from the enduser, usually request.POST or equivalent. formdata should be some sort of request-data wrapper which can get multiple parameters from the form input, and values are unicode strings</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="carry.forms.BookingForm.car_id">
+<code class="sig-name descname">car_id</code><em class="property"> = &lt;UnboundField(HiddenField, ('Car ID',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.BookingForm.car_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.BookingForm.duration">
+<code class="sig-name descname">duration</code><em class="property"> = &lt;UnboundField(HiddenField, ('Duration',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.BookingForm.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.BookingForm.end_datetime">
+<code class="sig-name descname">end_datetime</code><em class="property"> = &lt;UnboundField(HiddenField, ('End Date',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.BookingForm.end_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.BookingForm.start_datetime">
+<code class="sig-name descname">start_datetime</code><em class="property"> = &lt;UnboundField(HiddenField, ('Start Date',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.BookingForm.start_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.BookingForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Book',), {})&gt;</em><a class="headerlink" href="#carry.forms.BookingForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.BookingForm.user_id">
+<code class="sig-name descname">user_id</code><em class="property"> = &lt;UnboundField(HiddenField, ('User ID',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.BookingForm.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.forms.LoginForm">
+<em class="property">class </em><code class="sig-prename descclassname">carry.forms.</code><code class="sig-name descname">LoginForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>A flexible form validation for Login</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>formdata</strong> – Used to pass data coming from the enduser, usually request.POST or equivalent. formdata should be some sort of request-data wrapper which can get multiple parameters from the form input, and values are unicode strings</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="carry.forms.LoginForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.LoginForm.remember">
+<code class="sig-name descname">remember</code><em class="property"> = &lt;UnboundField(BooleanField, ('Remember Me',), {})&gt;</em><a class="headerlink" href="#carry.forms.LoginForm.remember" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.LoginForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Login',), {})&gt;</em><a class="headerlink" href="#carry.forms.LoginForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.LoginForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Email / Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.forms.NewBookingForm">
+<em class="property">class </em><code class="sig-prename descclassname">carry.forms.</code><code class="sig-name descname">NewBookingForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.NewBookingForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>A flexible form validation for New Booking</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>formdata</strong> – Used to pass data coming from the enduser, usually request.POST or equivalent. formdata should be some sort of request-data wrapper which can get multiple parameters from the form input, and values are unicode strings</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="carry.forms.NewBookingForm.car_id">
+<code class="sig-name descname">car_id</code><em class="property"> = &lt;UnboundField(HiddenField, ('Car ID',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.NewBookingForm.car_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.NewBookingForm.duration">
+<code class="sig-name descname">duration</code><em class="property"> = &lt;UnboundField(HiddenField, ('Duration',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.NewBookingForm.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.NewBookingForm.end_datetime">
+<code class="sig-name descname">end_datetime</code><em class="property"> = &lt;UnboundField(HiddenField, ('End Date',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.NewBookingForm.end_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.NewBookingForm.start_datetime">
+<code class="sig-name descname">start_datetime</code><em class="property"> = &lt;UnboundField(HiddenField, ('Start Date',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.NewBookingForm.start_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.NewBookingForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Confirm',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.NewBookingForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.forms.RegistrationForm">
+<em class="property">class </em><code class="sig-prename descclassname">carry.forms.</code><code class="sig-name descname">RegistrationForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.RegistrationForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>A flexible form validation for Registration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>formdata</strong> – Used to pass data coming from the enduser, usually request.POST or equivalent. formdata should be some sort of request-data wrapper which can get multiple parameters from the form input, and values are unicode strings</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.confirm_password">
+<code class="sig-name descname">confirm_password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Confirm Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.EqualTo object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.confirm_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.firstname">
+<code class="sig-name descname">firstname</code><em class="property"> = &lt;UnboundField(StringField, ('First Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.firstname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.lastname">
+<code class="sig-name descname">lastname</code><em class="property"> = &lt;UnboundField(StringField, ('Last Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.lastname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Sign Up',), {})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.RegistrationForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.RegistrationForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.forms.RegistrationForm.validate_email">
+<code class="sig-name descname">validate_email</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">email</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.RegistrationForm.validate_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for checking if email already exists in the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>string</em><em>, </em><em>essential</em>) – Email</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ValidationError()</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.forms.RegistrationForm.validate_username">
+<code class="sig-name descname">validate_username</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.RegistrationForm.validate_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for checking if username already exists in the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>username</strong> (<em>string</em><em>, </em><em>essential</em>) – Username</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ValidationError()</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.forms.UpdateAccountForm">
+<em class="property">class </em><code class="sig-prename descclassname">carry.forms.</code><code class="sig-name descname">UpdateAccountForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#carry.forms.UpdateAccountForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>A flexible form validation for Profile Update</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>formdata</strong> – Used to pass data coming from the enduser, usually request.POST or equivalent. formdata should be some sort of request-data wrapper which can get multiple parameters from the form input, and values are unicode strings</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.firstname">
+<code class="sig-name descname">firstname</code><em class="property"> = &lt;UnboundField(StringField, ('First Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.firstname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.lastname">
+<code class="sig-name descname">lastname</code><em class="property"> = &lt;UnboundField(StringField, ('Last Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Regexp object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.lastname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.location">
+<code class="sig-name descname">location</code><em class="property"> = &lt;UnboundField(SelectField, ('Location',), {'choices': [('melbourne', 'Melbourne')], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.profile_url">
+<code class="sig-name descname">profile_url</code><em class="property"> = &lt;UnboundField(FileField, ('Update Profile Picture',), {'validators': [&lt;flask_wtf.file.FileAllowed object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.profile_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Update',), {})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.forms.UpdateAccountForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#carry.forms.UpdateAccountForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.models">
+<span id="carry-models-module"></span><h2>carry.models module<a class="headerlink" href="#module-carry.models" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="carry.models.Booking">
+<em class="property">class </em><code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">Booking</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.Booking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<p>Booking Database Model</p>
+<p>Each booking in the database will be assigned a unique id value, which is a primary key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reference should be unique.
+Booking Model has user_id and car_id fields which are foreign keys.</p>
+</div>
+<dl class="py attribute">
+<dt id="carry.models.Booking.booking_datetime">
+<code class="sig-name descname">booking_datetime</code><a class="headerlink" href="#carry.models.Booking.booking_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.calendar_eid">
+<code class="sig-name descname">calendar_eid</code><a class="headerlink" href="#carry.models.Booking.calendar_eid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.cancelled">
+<code class="sig-name descname">cancelled</code><a class="headerlink" href="#carry.models.Booking.cancelled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.car_id">
+<code class="sig-name descname">car_id</code><a class="headerlink" href="#carry.models.Booking.car_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.duration">
+<code class="sig-name descname">duration</code><a class="headerlink" href="#carry.models.Booking.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.end_datetime">
+<code class="sig-name descname">end_datetime</code><a class="headerlink" href="#carry.models.Booking.end_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.finished">
+<code class="sig-name descname">finished</code><a class="headerlink" href="#carry.models.Booking.finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#carry.models.Booking.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.logs">
+<code class="sig-name descname">logs</code><a class="headerlink" href="#carry.models.Booking.logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.reference">
+<code class="sig-name descname">reference</code><a class="headerlink" href="#carry.models.Booking.reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.rentBy">
+<code class="sig-name descname">rentBy</code><a class="headerlink" href="#carry.models.Booking.rentBy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.rented">
+<code class="sig-name descname">rented</code><a class="headerlink" href="#carry.models.Booking.rented" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.start_datetime">
+<code class="sig-name descname">start_datetime</code><a class="headerlink" href="#carry.models.Booking.start_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.started">
+<code class="sig-name descname">started</code><a class="headerlink" href="#carry.models.Booking.started" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.total_cost">
+<code class="sig-name descname">total_cost</code><a class="headerlink" href="#carry.models.Booking.total_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Booking.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#carry.models.Booking.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.models.Car">
+<em class="property">class </em><code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">Car</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.Car" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<p>Car Database Model</p>
+<p>Each car in the database will be assigned a unique id value, which is a primary key.</p>
+<dl class="py attribute">
+<dt id="carry.models.Car.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#carry.models.Car.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.body_type">
+<code class="sig-name descname">body_type</code><a class="headerlink" href="#carry.models.Car.body_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.bookings">
+<code class="sig-name descname">bookings</code><a class="headerlink" href="#carry.models.Car.bookings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.colour">
+<code class="sig-name descname">colour</code><a class="headerlink" href="#carry.models.Car.colour" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.cost">
+<code class="sig-name descname">cost</code><a class="headerlink" href="#carry.models.Car.cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#carry.models.Car.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.img_url">
+<code class="sig-name descname">img_url</code><a class="headerlink" href="#carry.models.Car.img_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.lat">
+<code class="sig-name descname">lat</code><a class="headerlink" href="#carry.models.Car.lat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.lng">
+<code class="sig-name descname">lng</code><a class="headerlink" href="#carry.models.Car.lng" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.logs">
+<code class="sig-name descname">logs</code><a class="headerlink" href="#carry.models.Car.logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.make">
+<code class="sig-name descname">make</code><a class="headerlink" href="#carry.models.Car.make" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.postcode">
+<code class="sig-name descname">postcode</code><a class="headerlink" href="#carry.models.Car.postcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.reports">
+<code class="sig-name descname">reports</code><a class="headerlink" href="#carry.models.Car.reports" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.seats">
+<code class="sig-name descname">seats</code><a class="headerlink" href="#carry.models.Car.seats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.state">
+<code class="sig-name descname">state</code><a class="headerlink" href="#carry.models.Car.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Car.suburb">
+<code class="sig-name descname">suburb</code><a class="headerlink" href="#carry.models.Car.suburb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.models.CarSchema">
+<em class="property">class </em><code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">CarSchema</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.CarSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">marshmallow_sqlalchemy.schema.sqlalchemy_schema.SQLAlchemyAutoSchema</span></code></p>
+<dl class="py class">
+<dt id="carry.models.CarSchema.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#carry.models.CarSchema.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="carry.models.CarSchema.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#carry.models.CarSchema.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#carry.models.Car" title="carry.models.Car"><code class="xref py py-class docutils literal notranslate"><span class="pre">Car</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.CarSchema.opts">
+<code class="sig-name descname">opts</code><em class="property"> = &lt;marshmallow_sqlalchemy.schema.sqlalchemy_schema.SQLAlchemyAutoSchemaOpts object&gt;</em><a class="headerlink" href="#carry.models.CarSchema.opts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.models.Log">
+<em class="property">class </em><code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">Log</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.Log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<p>Log Database Model</p>
+<p>Each Log in the database will be assigned a unique id value, which is a primary key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Log Model has user_id, car_id and booking_id fields which are foreign keys.</p>
+</div>
+<dl class="py attribute">
+<dt id="carry.models.Log.booking_id">
+<code class="sig-name descname">booking_id</code><a class="headerlink" href="#carry.models.Log.booking_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.car_id">
+<code class="sig-name descname">car_id</code><a class="headerlink" href="#carry.models.Log.car_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.datetime">
+<code class="sig-name descname">datetime</code><a class="headerlink" href="#carry.models.Log.datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.has">
+<code class="sig-name descname">has</code><a class="headerlink" href="#carry.models.Log.has" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#carry.models.Log.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.lat">
+<code class="sig-name descname">lat</code><a class="headerlink" href="#carry.models.Log.lat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.lng">
+<code class="sig-name descname">lng</code><a class="headerlink" href="#carry.models.Log.lng" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.logged">
+<code class="sig-name descname">logged</code><a class="headerlink" href="#carry.models.Log.logged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.logs">
+<code class="sig-name descname">logs</code><a class="headerlink" href="#carry.models.Log.logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#carry.models.Log.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Log.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#carry.models.Log.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.models.Report">
+<em class="property">class </em><code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">Report</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.Report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<p>Report Database Model</p>
+<p>Each Report in the database will be assigned a unique id value, which is a primary key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Report Model has user_id and car_id fields which are foreign key.</p>
+</div>
+<dl class="py attribute">
+<dt id="carry.models.Report.car_id">
+<code class="sig-name descname">car_id</code><a class="headerlink" href="#carry.models.Report.car_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.completed">
+<code class="sig-name descname">completed</code><a class="headerlink" href="#carry.models.Report.completed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.completed_datetime">
+<code class="sig-name descname">completed_datetime</code><a class="headerlink" href="#carry.models.Report.completed_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.detail">
+<code class="sig-name descname">detail</code><a class="headerlink" href="#carry.models.Report.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#carry.models.Report.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.reported">
+<code class="sig-name descname">reported</code><a class="headerlink" href="#carry.models.Report.reported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.reported_datetime">
+<code class="sig-name descname">reported_datetime</code><a class="headerlink" href="#carry.models.Report.reported_datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.reports">
+<code class="sig-name descname">reports</code><a class="headerlink" href="#carry.models.Report.reports" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.taken">
+<code class="sig-name descname">taken</code><a class="headerlink" href="#carry.models.Report.taken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.Report.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#carry.models.Report.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="carry.models.User">
+<em class="property">class </em><code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">User</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_login.mixins.UserMixin</span></code></p>
+<p>User Database Model</p>
+<p>Each user in the database will be assigned a unique id value, which is a primary key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Username and Email should be unique.</p>
+</div>
+<dl class="py attribute">
+<dt id="carry.models.User.auth">
+<code class="sig-name descname">auth</code><a class="headerlink" href="#carry.models.User.auth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.bookings">
+<code class="sig-name descname">bookings</code><a class="headerlink" href="#carry.models.User.bookings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#carry.models.User.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.firstname">
+<code class="sig-name descname">firstname</code><a class="headerlink" href="#carry.models.User.firstname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#carry.models.User.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.lastname">
+<code class="sig-name descname">lastname</code><a class="headerlink" href="#carry.models.User.lastname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.location">
+<code class="sig-name descname">location</code><a class="headerlink" href="#carry.models.User.location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.logs">
+<code class="sig-name descname">logs</code><a class="headerlink" href="#carry.models.User.logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.macAddr">
+<code class="sig-name descname">macAddr</code><a class="headerlink" href="#carry.models.User.macAddr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.password">
+<code class="sig-name descname">password</code><a class="headerlink" href="#carry.models.User.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.profile_url">
+<code class="sig-name descname">profile_url</code><a class="headerlink" href="#carry.models.User.profile_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.registered">
+<code class="sig-name descname">registered</code><a class="headerlink" href="#carry.models.User.registered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.reports">
+<code class="sig-name descname">reports</code><a class="headerlink" href="#carry.models.User.reports" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="carry.models.User.username">
+<code class="sig-name descname">username</code><a class="headerlink" href="#carry.models.User.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.models.load_user">
+<code class="sig-prename descclassname">carry.models.</code><code class="sig-name descname">load_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.models.load_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator for reloading the user from the user_id in the session
+:param user_id: Primary key of User
+:type user_id: int, essential
+:return User Object where id = user_id
+:rtype: dictionary</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.routes">
+<span id="carry-routes-module"></span><h2>carry.routes module<a class="headerlink" href="#module-carry.routes" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="carry.routes.booking_detail">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">booking_detail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.booking_detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>New Booking Detail Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.getDetailedMap">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">getDetailedMap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.getDetailedMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Method for creating a detailed Google map</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.getMap">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">getMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.getMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Method for creating a Google map</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.home">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">home</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.home" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find Car Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.index">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Landing Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.login">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>User Login Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.logout">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>User Logout Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.my_bookings">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">my_bookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.my_bookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>My Bookings Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.new_booking">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">new_booking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.new_booking" title="Permalink to this definition">¶</a></dt>
+<dd><p>New Booking Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.profile">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>User Profile Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.register">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>User Registration Page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.routes.save_picture">
+<code class="sig-prename descclassname">carry.routes.</code><code class="sig-name descname">save_picture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">picture</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.routes.save_picture" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Method for saving a picture from user input</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.socket">
+<span id="carry-socket-module"></span><h2>carry.socket module<a class="headerlink" href="#module-carry.socket" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="carry.socket.background_thread">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">background_thread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.background_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Background Thread which runs to receive messages from Agent Pis</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.completeTask">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">completeTask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.completeTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for completing a task</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.decrypt">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">decrypt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">ciphertext</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for decryption with shared key between Agent Pis and Master Pi</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.getAllMacAddr">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">getAllMacAddr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.getAllMacAddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for getting all mac addresses for scanning</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.loginWithBluetooth">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">loginWithBluetooth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">macAddr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.loginWithBluetooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for logging in with bluetooth</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.registerMacAddr">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">registerMacAddr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">macAddr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.registerMacAddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for registering mac address for engieneers</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.sendBookingID">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">sendBookingID</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.sendBookingID" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for sending a booking id if there is current booking for specific user and car</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.sendJson">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">sendJson</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">msgFromServer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.sendJson" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for sending json data to Agent pi</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.statusUpdate">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">statusUpdate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">booking_id</span></em>, <em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lng</span></em>, <em class="sig-param"><span class="n">datetime</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.statusUpdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for storing user activities in the database</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="carry.socket.user_credential">
+<code class="sig-prename descclassname">carry.socket.</code><code class="sig-name descname">user_credential</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">UDPServerSocket</span></em>, <em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em>, <em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.socket.user_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for validating user inputs from Agent Pis</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry.test_database_utils">
+<span id="carry-test-database-utils-module"></span><h2>carry.test_database_utils module<a class="headerlink" href="#module-carry.test_database_utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="carry.test_database_utils.TestDatabaseUtils">
+<em class="property">class </em><code class="sig-prename descclassname">carry.test_database_utils.</code><code class="sig-name descname">TestDatabaseUtils</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>This testcase is created by subclassing unittest.TestCase</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run this test class, enter this command in the project directory.</p>
+<p>$ python3 -m unittest carry/test_database_utils.py</p>
+</div>
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.setUpClass">
+<em class="property">classmethod </em><code class="sig-name descname">setUpClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.setUpClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class method called before tests in an individual class are run.</p>
+<p>setUpClass is called with the class as the only argument and must be decorated as a classmethod()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.tearDownClass">
+<em class="property">classmethod </em><code class="sig-name descname">tearDownClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.tearDownClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class method called after tests in an individual class have run.</p>
+<p>tearDownClass is called with the class as the only argument and must be decorated as a classmethod():</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_a">
+<code class="sig-name descname">test_database_a</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method if database configuration is set to the test database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_b_registerUser">
+<code class="sig-name descname">test_database_b_registerUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_b_registerUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for user registration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_d_findUser">
+<code class="sig-name descname">test_database_d_findUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_d_findUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for finding user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_e_getUser">
+<code class="sig-name descname">test_database_e_getUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_e_getUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_f_dupliUser">
+<code class="sig-name descname">test_database_f_dupliUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_f_dupliUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for validating duplicate user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_g_createCar">
+<code class="sig-name descname">test_database_g_createCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_g_createCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for creating a new car</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_h_getCar">
+<code class="sig-name descname">test_database_h_getCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_h_getCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting car</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_i_searchCar">
+<code class="sig-name descname">test_database_i_searchCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_i_searchCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for searching car details</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_j_newBooking">
+<code class="sig-name descname">test_database_j_newBooking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_j_newBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for creating a new booking</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_k_addCalendarBooking">
+<code class="sig-name descname">test_database_k_addCalendarBooking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_k_addCalendarBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for adding calendar event id to the existing booking</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_l_getMyBookings">
+<code class="sig-name descname">test_database_l_getMyBookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_l_getMyBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting all bookings by the user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_m_getBookedCar">
+<code class="sig-name descname">test_database_m_getBookedCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_m_getBookedCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting booked car during the period</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_n_cancelBooking">
+<code class="sig-name descname">test_database_n_cancelBooking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_n_cancelBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for cancelling the booking</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_o_getMyPastBookings">
+<code class="sig-name descname">test_database_o_getMyPastBookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_o_getMyPastBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting past bookings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_p_getCurrentBooking">
+<code class="sig-name descname">test_database_p_getCurrentBooking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_p_getCurrentBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting current booking allocated to specific car and user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_q_logging">
+<code class="sig-name descname">test_database_q_logging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_q_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting current booking allocated to specific car and user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_r_getAllRecentBookings">
+<code class="sig-name descname">test_database_r_getAllRecentBookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_r_getAllRecentBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting recent booking upto 30 days ago)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_s_getAllPastBookings">
+<code class="sig-name descname">test_database_s_getAllPastBookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_s_getAllPastBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting past booking (between 30 - 60 days ago)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_t_getTodayBookings">
+<code class="sig-name descname">test_database_t_getTodayBookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_t_getTodayBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting booking being made today</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_u_getYesterdayBookings">
+<code class="sig-name descname">test_database_u_getYesterdayBookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_u_getYesterdayBookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting booking being made yesterday</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_v_getAllRecentUsers">
+<code class="sig-name descname">test_database_v_getAllRecentUsers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_v_getAllRecentUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting users registered in 7 days</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_w_getAllPastUsers">
+<code class="sig-name descname">test_database_w_getAllPastUsers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_w_getAllPastUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting users registered (7 - 14 days ago)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_x_getSalesList">
+<code class="sig-name descname">test_database_x_getSalesList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_x_getSalesList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting monthly sales from bookings for 6 months</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_y_getBookingList">
+<code class="sig-name descname">test_database_y_getBookingList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_y_getBookingList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting number of bookings monthly for 6 months</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_z_getCancellationRates">
+<code class="sig-name descname">test_database_z_getCancellationRates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_z_getCancellationRates" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting total number of bookings, cancellation on a monthly basis</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_za_newReport">
+<code class="sig-name descname">test_database_za_newReport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_za_newReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for creating a new report</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_zb_completeReport">
+<code class="sig-name descname">test_database_zb_completeReport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_zb_completeReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for completing report</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_zc_updateMacAddr">
+<code class="sig-name descname">test_database_zc_updateMacAddr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_zc_updateMacAddr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_zd_getAllEngineers">
+<code class="sig-name descname">test_database_zd_getAllEngineers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_zd_getAllEngineers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for getting all engineers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_database_ze_loginWithBluetooth">
+<code class="sig-name descname">test_database_ze_loginWithBluetooth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_database_ze_loginWithBluetooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test method for logging in with bluetooth</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_pushbullet">
+<code class="sig-name descname">test_pushbullet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_pushbullet" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if pushbullet works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_10_admin">
+<code class="sig-name descname">test_route_10_admin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_10_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if admin dashboard page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_11_admin_user">
+<code class="sig-name descname">test_route_11_admin_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_11_admin_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if admin user page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_12_admin_car">
+<code class="sig-name descname">test_route_12_admin_car</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_12_admin_car" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if admin car page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_13_admin_log">
+<code class="sig-name descname">test_route_13_admin_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_13_admin_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if admin log page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_14_admin_report">
+<code class="sig-name descname">test_route_14_admin_report</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_14_admin_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if admin log page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_15_admin_">
+<code class="sig-name descname">test_route_15_admin_</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_15_admin_" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if admin log page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_1_logout">
+<code class="sig-name descname">test_route_1_logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_1_logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if logout works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_2_login">
+<code class="sig-name descname">test_route_2_login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_2_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if logout works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_3_index">
+<code class="sig-name descname">test_route_3_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_3_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if index page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_4_register">
+<code class="sig-name descname">test_route_4_register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_4_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if registration page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_5_home">
+<code class="sig-name descname">test_route_5_home</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_5_home" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if find car page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_6_profile">
+<code class="sig-name descname">test_route_6_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_6_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if profile page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_7_booking">
+<code class="sig-name descname">test_route_7_booking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_7_booking" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if booking page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_8_booking_detail">
+<code class="sig-name descname">test_route_8_booking_detail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_8_booking_detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if booking detail page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="carry.test_database_utils.TestDatabaseUtils.test_route_9_my_bookings">
+<code class="sig-name descname">test_route_9_my_bookings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#carry.test_database_utils.TestDatabaseUtils.test_route_9_my_bookings" title="Permalink to this definition">¶</a></dt>
+<dd><p>a method which checks if mybookings page works properly.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span>
+<span class="go">return True if it redirects successfully</span>
+<span class="go">return False if not.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-carry">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-carry" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Carry</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">carry-admin</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">carry package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.admin_routes">carry.admin_routes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.database_utils">carry.database_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.fetch">carry.fetch module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.forms">carry.forms module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.models">carry.models module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.routes">carry.routes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.socket">carry.socket module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry.test_database_utils">carry.test_database_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-carry">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">run module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx.html">sphinx module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">carry-admin</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">carry-admin</a></li>
+      <li>Next: <a href="run.html" title="next chapter">run module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Paul Miller Group 13.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/carry.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

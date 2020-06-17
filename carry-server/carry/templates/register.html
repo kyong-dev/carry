@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="form_container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend class="form_title">Join Today</legend>
+                <div class="row">
+                    <div class="six columns">
+                        <div class="u-full-width">
+                            {{ form.username.label(class="") }}
+                            {{ form.username(class="u-full-width") }}
+                            {% if form.username.errors %}
+                                <div class="u-pull-left alert-msg">
+                                    {% for error in form.username.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="six columns">
+                        <div class="u-full-width">
+                            {{ form.email.label(class="") }}
+                            {{ form.email(class="u-full-width") }}
+                            {% if form.email.errors %}
+                                <div class="u-pull-left alert-msg">
+                                    {% for error in form.email.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <div class="u-full-width">
+                            {{ form.firstname.label(class="") }}
+                            {{ form.firstname(class="u-full-width") }}
+                            {% if form.firstname.errors %}
+                                <div class="u-pull-left alert-msg">
+                                    {% for error in form.firstname.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="six columns">
+                        <div class="u-full-width">
+                            {{ form.lastname.label(class="") }}
+                            {{ form.lastname(class="u-full-width") }}
+                            {% if form.lastname.errors %}
+                                <div class="u-pull-left alert-msg">
+                                    {% for error in form.lastname.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <div class="u-full-width">
+                            {{ form.password.label(class="") }}
+                            {{ form.password(class="u-full-width", oninput="passwordValidation(event)", oncut="passwordValidation(event)") }}
+                            {% if form.password.errors %}
+                                <div class="u-pull-left alert-msg">
+                                    {% for error in form.password.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="six columns">
+                        <div class="u-full-width">
+                            {{ form.confirm_password.label(class="") }}
+                            {{ form.confirm_password(class="u-full-width") }}
+                            {% if form.confirm_password.errors %}
+                                <div class="u-pull-left alert-msg">
+                                    {% for error in form.confirm_password.errors %}
+                                        <span>
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <span id="caution">* Password must be more than 8 charaters.</span>
+            </fieldset>
+            <div class="row">
+                {{ form.submit(class="button-primary u-full-width") }}
+            </div>
+            <a href="{{ url_for('register') }}">
+                Already have an account? Login
+            </a>
+        </form>
+    </div>
+    <script>
+        function passwordValidation(event) {
+            // Password Characters
+            if (document.getElementById('password').value.length > 7) {
+                document.getElementById('caution').style= "display: none; transition: opacity 1s ease-out; opacity: 0;";
+            } else {
+                document.getElementById('caution').style = "display: block; transition: opacity 1s ease-in; opacity: 1;";
+            }
+        }
+    </script>
+{% endblock content %}
