@@ -28,7 +28,7 @@ login_manager.login_view = 'login'
 # To redirect users back to the page that users were trying to access
 login_manager.login_message_category = 'info'
 
-app.config['GOOGLEMAPS_KEY'] = "AIzaSyA1h5KTHKlyU2WUAO5xONKZZ50zijczn5Y"
+app.config['GOOGLEMAPS_KEY'] = "GOOGLEMAP_API_KEY"
 GoogleMaps(app)
 
 # set optional bootswatch theme

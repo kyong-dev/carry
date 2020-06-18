@@ -19,7 +19,7 @@ from bluepy.btle import Scanner
 
 DB_NAME = "agent.db"
 AGENT_NUMBER = 1
-gmaps = googlemaps.Client(key='AIzaSyA1h5KTHKlyU2WUAO5xONKZZ50zijczn5Y')
+gmaps = googlemaps.Client(key='GOOGLEMAP_API_KEY')
 
 # Encryption Key
 key = 'mOJGpG5HjCFQV7n0'

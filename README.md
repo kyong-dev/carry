@@ -25,7 +25,7 @@
 Development Environment: Ubuntu 18.04</br>
 Deployment Environment: Raspbian on Raspberry Pi 3 Model B+
 
-## Architectrue
+## Architecture
 ![Alt text](carry-server/carry/static/readme/structure_diagram.png?raw=true "Diagram")
 
 ## How to install 
