@@ -8,6 +8,7 @@
 - [Google Cloud SQL](https://console.cloud.google.com/marketplace/details/google-cloud-platform/cloud-sql?pli=1)
 - [SQLAlchemy](https://www.sqlalchemy.org/)
 - [Google Calendar API](https://developers.google.com/calendar/)
+- [Google Map API](https://developers.google.com/maps/documentation/)
 - [Google Speech-To-Text](https://cloud.google.com/speech-to-text/)
 - [UDP Socket Programming](https://realpython.com/python-sockets/)
 - [Skeleton CSS](http://getskeleton.com/) [For Customer Website]
