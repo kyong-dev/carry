@@ -63,7 +63,7 @@ PyAudio==0.2.11
 pycodestyle==2.5.0
 pycparser==2.20
 pycrypto==2.6.1
-Pygments==2.6.1
+Pygments==2.7.4
 pylint==2.5.0
 PyMySQL==0.9.3
 pyOpenSSL==19.1.0
