@@ -182,7 +182,7 @@ twython==3.7.0
 typed-ast==1.4.1
 uflash==1.2.4
 unicornhathd==0.0.4
-urllib3==1.24.1
+urllib3==1.26.5
 virtualenv==20.0.18
 virtualenv-clone==0.5.4
 virtualenvwrapper==5.0.0
