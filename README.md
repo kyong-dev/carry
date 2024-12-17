@@ -45,7 +45,7 @@ or
 $ cd carry/carry-agent
 ```
 
-#### Virtualevn
+#### Virtualenv
 ```
 $ source venv/bin/activate
 ```
